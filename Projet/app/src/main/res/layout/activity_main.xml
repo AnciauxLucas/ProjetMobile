@@ -10,7 +10,7 @@
         android:id="@+id/button_qr_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/border"
         android:foreground="@mipmap/qr_code"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/border"
         android:foreground="@mipmap/formations"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
         android:id="@+id/button_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="75dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/border"
         android:foreground="@mipmap/account"
@@ -47,10 +47,68 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="75dp"
         android:background="@drawable/border"
         android:foreground="@mipmap/faq"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_account"
         app:layout_constraintTop_toBottomOf="@+id/button_formations" />
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/welcome"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/label_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/scan"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_qr_code"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="@+id/button_qr_code"
+        app:layout_constraintTop_toBottomOf="@+id/button_qr_code" />
+
+    <TextView
+        android:id="@+id/label_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/calendar"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_formations"
+        app:layout_constraintStart_toStartOf="@+id/button_formations"
+        app:layout_constraintTop_toBottomOf="@+id/button_formations" />
+
+    <TextView
+        android:id="@+id/label_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/account"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_account"
+        app:layout_constraintStart_toStartOf="@+id/button_account"
+        app:layout_constraintTop_toBottomOf="@+id/button_account" />
+
+    <TextView
+        android:id="@+id/label_faq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/faq"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_faq"
+        app:layout_constraintStart_toStartOf="@+id/button_faq"
+        app:layout_constraintTop_toBottomOf="@+id/button_faq" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

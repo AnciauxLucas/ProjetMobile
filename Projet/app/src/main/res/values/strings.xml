@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">mobileGenicotAnciaux</string>
+    <string name="app_name">U-Garden</string>
+    <string name="descriptionLeaf">Logo</string>
+    <string name="connection">Connection</string>
+    <string name="username">Pseudo</string>
+    <string name="password">Mot de passe</string>
+    <string name="register">Inscription</string>
+    <string name="lastName">Nom</string>
+    <string name="firstName">Prénom</string>
+    <string name="team">ID de la classe</string>
+    <string name="welcome">Bienvenue</string>
+    <string name="scan">Scan</string>
+    <string name="calendar">Calendrier</string>
+    <string name="account">Compte</string>
+    <string name="faq">FAQ</string>
 </resources>
