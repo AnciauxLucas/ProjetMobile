@@ -30,7 +30,7 @@
                     android:layout_width="@android:dimen/notification_large_icon_width"
                     android:layout_height="@android:dimen/notification_large_icon_height"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:contentDescription="@string/descriptionLeaf"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"

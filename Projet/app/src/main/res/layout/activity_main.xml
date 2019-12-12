@@ -10,55 +10,54 @@
         android:id="@+id/button_qr_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/border"
         android:foreground="@mipmap/qr_code"
         app:layout_constraintEnd_toStartOf="@+id/button_formations"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/app_name" />
 
     <Button
         android:id="@+id/button_formations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="16dp"
         android:background="@drawable/border"
         android:foreground="@mipmap/formations"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_qr_code"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/button_qr_code" />
 
     <Button
         android:id="@+id/button_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/border"
         android:foreground="@mipmap/account"
         app:layout_constraintEnd_toStartOf="@+id/button_faq"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_qr_code" />
+        app:layout_constraintTop_toBottomOf="@+id/label_scan" />
 
     <Button
         android:id="@+id/button_faq"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="75dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/border"
         android:foreground="@mipmap/faq"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_account"
-        app:layout_constraintTop_toBottomOf="@+id/button_formations" />
+        app:layout_constraintTop_toBottomOf="@+id/label_calendar" />
 
     <TextView
         android:id="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
         android:text="@string/welcome"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
