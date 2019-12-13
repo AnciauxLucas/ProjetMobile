@@ -74,6 +74,7 @@ public class ScanActivity extends AppCompatActivity {
             public void receiveDetections(Detector.Detections<Barcode> detections) {
                 final SparseArray<Barcode> qrCodes = detections.getDetectedItems();
                 if (qrCodes.size() != 0) {
+                    Log.i("api_call", qrCodes.valueAt(0).displayValue);
                     /*
                     TODO
                        VAR.post(new Runnable() {

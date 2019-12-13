@@ -4,6 +4,9 @@
     <string name="connection">Connexion</string>
     <string name="username">Pseudo</string>
     <string name="password">Mot de passe</string>
+    <string name="errorUsername">Le pseudo ne peut pas être vide</string>
+    <string name="errorPassword">Le mot de passe ne peut pas être vide</string>
+    <string name="noMatch">Pseudo et/ou mot de passe non valide</string>
     <string name="register">Inscription</string>
     <string name="lastName">Nom</string>
     <string name="firstName">Prénom</string>
