@@ -7,6 +7,8 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.util.Log;
@@ -75,15 +77,10 @@ public class ScanActivity extends AppCompatActivity {
                 final SparseArray<Barcode> qrCodes = detections.getDetectedItems();
                 if (qrCodes.size() != 0) {
                     Log.i("api_call", qrCodes.valueAt(0).displayValue);
-                    /*
-                    TODO
-                       VAR.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            API
-                        }
-                    });
-                    */
+                    camera.setForegroundTintList(ColorStateList.valueOf(Color.GREEN));
+                    Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+                    vibrator.vibrate(1000);
+                    //TODO
                 }
             }
         });
