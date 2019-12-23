@@ -16,4 +16,5 @@
     <string name="calendar">Calendrier</string>
     <string name="account">Compte</string>
     <string name="faq">FAQ</string>
+    <string name="noInternet">Connexion internet requise</string>
 </resources>

@@ -37,34 +37,28 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
         ButterKnife.bind(this);
         Glide.with(LogInActivity.this).load(R.drawable.leaf).into(leaf);
-        buttonLogIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Boolean error = false;
-                if (TextUtils.isEmpty(username.getText().toString())) {
-                    username.setError(getResources().getString(R.string.errorUsername));
-                    error = true;
-                }
-                if (TextUtils.isEmpty(password.getText().toString())) {
-                    password.setError(getResources().getString(R.string.errorPassword));
-                    error = true;
-                }
-                if (!error) {
-                    if (username.getText().toString().equals("etu") && password.getText().toString().equals("1234")) {
-                        Intent intent = new Intent(LogInActivity.this, MainActivity.class);
-                        startActivity(intent);
-                    } else {
-                        noMatch.setText(getResources().getString(R.string.noMatch));
-                    }
+        buttonLogIn.setOnClickListener(v -> {
+            Boolean error = false;
+            if (TextUtils.isEmpty(username.getText().toString())) {
+                username.setError(getResources().getString(R.string.errorUsername));
+                error = true;
+            }
+            if (TextUtils.isEmpty(password.getText().toString())) {
+                password.setError(getResources().getString(R.string.errorPassword));
+                error = true;
+            }
+            if (!error) {
+                if (username.getText().toString().equals("etu") && password.getText().toString().equals("1234")) {
+                    Intent intent = new Intent(LogInActivity.this, MainActivity.class);
+                    startActivity(intent);
+                } else {
+                    noMatch.setText(getResources().getString(R.string.noMatch));
                 }
             }
         });
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LogInActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
+        buttonRegister.setOnClickListener(v -> {
+            Intent intent = new Intent(LogInActivity.this, RegisterActivity.class);
+            startActivity(intent);
         });
     }
 }
