@@ -1,12 +1,15 @@
 package com.example.mobilegenicotanciaux.services;
 
+import com.example.mobilegenicotanciaux.model.User;
+
 import retrofit2.Call;
-import retrofit2.http.GET;
+import retrofit2.http.Body;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface UserService {
-    String BASE_URL = "";
+    String BASE_URL = "https://ugardenwebapi.azurewebsites.net/AppUser/";
 
-//    @GET("users")
-//    Call<User> getUserById(@Query("id") Integer id);
+    @POST("add")
+    Call<User> addUser(@Query("accessCode") String accessCode, @Body User user);
 }

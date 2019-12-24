@@ -1,22 +1,18 @@
-package com.example.mobilegenicotanciaux;
+package com.example.mobilegenicotanciaux.activities;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.os.Vibrator;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.mobilegenicotanciaux.utils.NetworkUtil;
+import com.example.mobilegenicotanciaux.R;
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
@@ -49,11 +45,11 @@ public class ScanActivity extends AppCompatActivity {
         camera.getHolder().addCallback(new SurfaceHolder.Callback() {
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
-                    try {
-                        cameraSource.start(holder);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                try {
+                    cameraSource.start(holder);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -77,11 +73,12 @@ public class ScanActivity extends AppCompatActivity {
                 final SparseArray<Barcode> qrCodes = detections.getDetectedItems();
                 if (qrCodes.size() != 0) {
                     //IF URL == NOTRE API
-                    //Log.i("api_call", qrCodes.valueAt(0).displayValue);
                     camera.setForegroundTintList(ColorStateList.valueOf(Color.GREEN));
                     Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                     vibrator.vibrate(1000);
-                    //TODO
+                    Intent intent = new Intent(ScanActivity.this, PlantationActivity.class);
+                    intent.putExtra("call", qrCodes.valueAt(0));
+                    startActivity(intent);
                 }
             }
         });

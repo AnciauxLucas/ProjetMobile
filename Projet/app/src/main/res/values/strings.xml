@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">U-Garden</string>
-    <string name="descriptionLeaf">Logo</string>
+    <string name="descriptionLeaf">Image du logo</string>
     <string name="connection">Connexion</string>
     <string name="username">Pseudo</string>
     <string name="password">Mot de passe</string>
-    <string name="errorUsername">Le pseudo ne peut pas être vide</string>
-    <string name="errorPassword">Le mot de passe ne peut pas être vide</string>
+    <string name="error">Doit contenir entre 3 et 30 caractères</string>
     <string name="noMatch">Pseudo et/ou mot de passe non valide</string>
+    <string name="errorIdTeam">Doit contenir entre 16 et 30 caractères</string>
     <string name="register">Inscription</string>
     <string name="lastName">Nom</string>
     <string name="firstName">Prénom</string>
@@ -17,4 +17,9 @@
     <string name="account">Compte</string>
     <string name="faq">FAQ</string>
     <string name="noInternet">Connexion internet requise</string>
+    <string name="descriptionVegetable">Image de légume</string>
+    <string name="errorCallAPI">Erreur lors de l\'accès aux données</string>
+    <string name="usernameExisting">Pseudo déjà existant</string>
+    <string name="errorAccessCode">Le code n\'existe pas</string>
+    <string name="userCreated">Utilisateur ajouté avec succès</string>
 </resources>

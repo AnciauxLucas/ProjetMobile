@@ -1,24 +1,23 @@
-package com.example.mobilegenicotanciaux;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
+package com.example.mobilegenicotanciaux.activities;
 
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Network;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import com.example.mobilegenicotanciaux.R;
 import com.example.mobilegenicotanciaux.utils.NetworkUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity {
 
     static final int MY_PERMISSIONS_REQUEST_CAMERA = 0;
 
@@ -28,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_menu);
         ButterKnife.bind(this);
         buttonQr.setOnClickListener(v -> {
             if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CAMERA}, MY_PERMISSIONS_REQUEST_CAMERA);
+                ActivityCompat.requestPermissions(MenuActivity.this, new String[]{Manifest.permission.CAMERA}, MY_PERMISSIONS_REQUEST_CAMERA);
             }
             Context context = getApplicationContext();
             if (NetworkUtil.checkNetworkConnection(context)) {
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 toast.show();
             }
             if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED && !NetworkUtil.checkNetworkConnection(context)) {
-                Intent intent = new Intent(MainActivity.this, ScanActivity.class);
+                Intent intent = new Intent(MenuActivity.this, ScanActivity.class);
                 startActivity(intent);
             }
         });
