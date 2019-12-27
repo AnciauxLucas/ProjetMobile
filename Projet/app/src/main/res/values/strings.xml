@@ -22,4 +22,9 @@
     <string name="usernameExisting">Pseudo déjà existant</string>
     <string name="errorAccessCode">Le code n\'existe pas</string>
     <string name="userCreated">Utilisateur ajouté avec succès</string>
+    <string name="qrInvalid">Qr code non valide</string>
+    <string name="tokenExpired">Connexion expirée</string>
+    <string name="description">Description :</string>
+    <string name="datePlanted">Planter le :</string>
+    <string name="price">Prix :</string>
 </resources>

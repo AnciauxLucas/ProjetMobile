@@ -6,23 +6,105 @@
     android:layout_height="match_parent"
     tools:context=".activities.PlantationActivity">
 
-    <TextView
-        android:id="@+id/label_vegetable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/vegetable"
-        android:layout_width="@android:dimen/thumbnail_width"
-        android:layout_height="@android:dimen/thumbnail_height"
-        android:layout_marginStart="30dp"
-        android:contentDescription="@string/descriptionVegetable"
-        app:layout_constraintStart_toEndOf="@+id/label_vegetable"
-        app:layout_constraintTop_toTopOf="@+id/label_vegetable"
-        app:srcCompat="@android:color/transparent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="674dp">
+
+                <TextView
+                    android:id="@+id/input_vegetable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/vegetable"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/vegetable" />
+
+                <ImageView
+                    android:id="@+id/vegetable"
+                    android:layout_width="@android:dimen/notification_large_icon_height"
+                    android:layout_height="@android:dimen/notification_large_icon_width"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/descriptionVegetable"
+                    android:foreground="@drawable/border"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/input_vegetable"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@android:color/transparent" />
+
+                <TextView
+                    android:id="@+id/label_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70dp"
+                    android:text="@string/description"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/input_vegetable"
+                    app:layout_constraintTop_toBottomOf="@+id/input_vegetable" />
+
+                <TextView
+                    android:id="@+id/input_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/label_description"
+                    app:layout_constraintTop_toBottomOf="@+id/label_description" />
+
+                <TextView
+                    android:id="@+id/label_planted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:text="@string/datePlanted"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/label_description"
+                    app:layout_constraintTop_toBottomOf="@+id/input_description" />
+
+                <TextView
+                    android:id="@+id/input_planted"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@+id/input_description"
+                    app:layout_constraintStart_toStartOf="@+id/input_description"
+                    app:layout_constraintTop_toBottomOf="@+id/label_planted" />
+
+                <TextView
+                    android:id="@+id/label_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:text="@string/price"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/label_planted"
+                    app:layout_constraintTop_toBottomOf="@+id/input_planted" />
+
+                <TextView
+                    android:id="@+id/input_price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@+id/input_planted"
+                    app:layout_constraintStart_toStartOf="@+id/input_planted"
+                    app:layout_constraintTop_toBottomOf="@+id/label_price" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

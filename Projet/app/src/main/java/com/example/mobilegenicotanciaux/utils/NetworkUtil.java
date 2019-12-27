@@ -16,6 +16,6 @@ public class NetworkUtil {
     }
 
     public static Toast prepareToast(Context context) {
-        return Toast.makeText(context, context.getResources().getString(R.string.noInternet), Toast.LENGTH_SHORT);
+        return Toast.makeText(context, context.getResources().getString(R.string.noInternet), Toast.LENGTH_LONG);
     }
 }

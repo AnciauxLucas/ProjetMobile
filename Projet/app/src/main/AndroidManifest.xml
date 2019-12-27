@@ -34,7 +34,8 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".activities.MenuActivity" />
-        <activity android:name=".activities.ScanActivity" />
+        <activity android:name=".activities.ScanActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

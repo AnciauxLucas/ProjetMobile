@@ -15,6 +15,7 @@ import com.example.mobilegenicotanciaux.R;
 import com.example.mobilegenicotanciaux.model.User;
 import com.example.mobilegenicotanciaux.services.UserService;
 import com.example.mobilegenicotanciaux.utils.NetworkUtil;
+import com.example.mobilegenicotanciaux.utils.RetrofitFactory;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.Length;
@@ -66,18 +67,13 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
         Glide.with(RegisterActivity.this).load(R.drawable.leaf).into(leaf);
         validator = new Validator(this);
         validator.setValidationListener(this);
-        button.setOnClickListener(v -> {
-            validator.validate();
-        });
+        button.setOnClickListener(v -> validator.validate());
     }
 
     @Override
     public void onValidationSucceeded() {
         if (!NetworkUtil.checkNetworkConnection(getApplicationContext())) {
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(UserService.BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
+            Retrofit retrofit = RetrofitFactory.getRetrofitWithoutToken();
             UserService userService = retrofit.create(UserService.class);
             Call<User> call = userService.addUser(idTeam.getText().toString(), new User(username.getText().toString(),
                     password.getText().toString(),
@@ -106,8 +102,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
                 }
             });
         } else {
-            Toast toast = NetworkUtil.prepareToast(getApplicationContext());
-            toast.show();
+            NetworkUtil.prepareToast(getApplicationContext()).show();
         }
     }
 
