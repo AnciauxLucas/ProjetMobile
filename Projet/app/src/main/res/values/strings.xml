@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">U-Garden</string>
+    <string name="closeApp">Appuyer une fois de plus pour quitter</string>
     <string name="descriptionLeaf">Image du logo</string>
     <string name="connection">Connexion</string>
     <string name="username">Pseudo</string>
@@ -25,6 +26,6 @@
     <string name="qrInvalid">Qr code non valide</string>
     <string name="tokenExpired">Connexion expirée</string>
     <string name="description">Description :</string>
-    <string name="datePlanted">Planter le :</string>
+    <string name="datePlanted">Planté le :</string>
     <string name="price">Prix :</string>
 </resources>

@@ -17,7 +17,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="581dp">
+                android:layout_height="408dp">
 
                 <TextView
                     android:id="@+id/input_vegetable"
@@ -79,8 +79,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
                     android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="@+id/input_description"
+                    app:layout_constraintEnd_toStartOf="@+id/label_price"
                     app:layout_constraintStart_toStartOf="@+id/input_description"
                     app:layout_constraintTop_toBottomOf="@+id/label_planted" />
 
@@ -88,11 +89,11 @@
                     android:id="@+id/label_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
                     android:text="@string/price"
                     android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="@+id/label_planted"
-                    app:layout_constraintTop_toBottomOf="@+id/input_planted" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/label_planted"
+                    app:layout_constraintTop_toTopOf="@+id/label_planted" />
 
                 <TextView
                     android:id="@+id/input_price"
@@ -100,8 +101,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="@+id/input_planted"
-                    app:layout_constraintStart_toStartOf="@+id/input_planted"
+                    app:layout_constraintEnd_toEndOf="@+id/input_description"
+                    app:layout_constraintStart_toStartOf="@+id/label_price"
                     app:layout_constraintTop_toBottomOf="@+id/label_price" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

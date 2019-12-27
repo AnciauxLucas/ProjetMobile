@@ -1,5 +1,6 @@
 package com.example.mobilegenicotanciaux.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,7 +34,6 @@ public class PlantationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plantation);
         ButterKnife.bind(this);
-        OnBack
         Glide.with(PlantationActivity.this).load(R.drawable.vegetable).into(vegetable);
         Planting planting = (Planting)getIntent().getExtras().getSerializable("planting");
         inputVegetable.setText(planting.getVegetable().getName());
@@ -41,5 +41,11 @@ public class PlantationActivity extends AppCompatActivity {
         SimpleDateFormat myFormat = new SimpleDateFormat("dd-MM-yyyy");
         input_planted.setText(myFormat.format(planting.getDatePlanted()));
         input_price.setText(String.format("%.2f", planting.getVegetable().getPrice()) + "€");
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(PlantationActivity.this, MenuActivity.class);
+        startActivity(intent);
     }
 }
