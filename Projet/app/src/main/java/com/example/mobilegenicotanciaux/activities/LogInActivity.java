@@ -17,6 +17,7 @@ import com.example.mobilegenicotanciaux.R;
 import com.example.mobilegenicotanciaux.model.Jwt;
 import com.example.mobilegenicotanciaux.model.Token;
 import com.example.mobilegenicotanciaux.services.JwtService;
+import com.example.mobilegenicotanciaux.utils.CurrentUser;
 import com.example.mobilegenicotanciaux.utils.NetworkUtil;
 import com.example.mobilegenicotanciaux.utils.RetrofitFactory;
 import com.mobsandgeeks.saripaar.ValidationError;
@@ -82,6 +83,7 @@ public class LogInActivity extends AppCompatActivity implements Validator.Valida
                 public void onResponse(Call<Token> call, Response<Token> response) {
                     if (response.isSuccessful()) {
                         RetrofitFactory.setToken(new Token(response.body().getAccess_token(), response.body().getExpires_in()));
+                        CurrentUser.getCurrentUserFromApi();
                         Intent intent = new Intent(LogInActivity.this, MenuActivity.class);
                         startActivity(intent);
                     } else {

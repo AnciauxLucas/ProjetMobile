@@ -28,4 +28,10 @@
     <string name="description">Description :</string>
     <string name="datePlanted">Planté le :</string>
     <string name="price">Prix :</string>
+    <string name="settings">Paramètres</string>
+    <string name="newPassword">Nouveau mot de passe</string>
+    <string name="validate">Valider</string>
+    <string name="cancel">Retour</string>
+    <string name="wrongPassword">Mot de passe incorrect</string>
+    <string name="successModify">Informations modifiées avec succès</string>
 </resources>

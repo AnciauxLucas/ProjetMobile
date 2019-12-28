@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.example.mobilegenicotanciaux.R;
+import com.example.mobilegenicotanciaux.utils.CurrentUser;
 import com.example.mobilegenicotanciaux.utils.NetworkUtil;
 
 import butterknife.BindView;
@@ -24,6 +26,10 @@ public class MenuActivity extends AppCompatActivity {
 
     @BindView(R.id.button_qr_code)
     public Button buttonQr;
+    @BindView(R.id.button_formations)
+    public Button buttonFormations;
+    @BindView(R.id.button_account)
+    public Button buttonAccount;
     private long backPressedTime;
     private Toast backToast;
 
@@ -43,6 +49,30 @@ public class MenuActivity extends AppCompatActivity {
             }
             if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED && !NetworkUtil.checkNetworkConnection(context)) {
                 Intent intent = new Intent(MenuActivity.this, ScanActivity.class);
+                startActivity(intent);
+            }
+        });
+        buttonFormations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO
+            }
+        });
+        buttonAccount.setOnClickListener(v -> {
+            if (CurrentUser.getCurrentUser() == null) {
+                Context context = getApplicationContext();
+                if (!NetworkUtil.checkNetworkConnection(context)) {
+                    if (CurrentUser.getCurrentUserFromApi()) {
+                        Toast.makeText(context, getString(R.string.errorCallAPI), Toast.LENGTH_SHORT);
+                    } else {
+                        Intent intent = new Intent(MenuActivity.this, AccountActivity.class);
+                        startActivity(intent);
+                    }
+                } else {
+                    NetworkUtil.prepareToast(context).show();
+                }
+            } else {
+                Intent intent = new Intent(MenuActivity.this, AccountActivity.class);
                 startActivity(intent);
             }
         });

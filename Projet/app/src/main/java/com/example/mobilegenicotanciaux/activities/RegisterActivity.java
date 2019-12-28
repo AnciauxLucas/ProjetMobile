@@ -13,7 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.example.mobilegenicotanciaux.R;
 import com.example.mobilegenicotanciaux.model.User;
+import com.example.mobilegenicotanciaux.model.dto.UserDto;
 import com.example.mobilegenicotanciaux.services.UserService;
+import com.example.mobilegenicotanciaux.utils.CurrentUser;
 import com.example.mobilegenicotanciaux.utils.NetworkUtil;
 import com.example.mobilegenicotanciaux.utils.RetrofitFactory;
 import com.mobsandgeeks.saripaar.ValidationError;
@@ -52,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
     @BindView(R.id.input_lastName)
     public EditText lastName;
     @NotEmpty
-    @Length(min = 16, max = 30)
+    @Length(min = 8, max = 30)
     @BindView(R.id.input_idTeam)
     public EditText idTeam;
     @BindView(R.id.button)
@@ -83,6 +85,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
                     if (response.isSuccessful()) {
+                        CurrentUser.setCurrentUser(new UserDto(username.getText().toString(), firstName.getText().toString(), lastName.getText().toString(), idTeam.getText().toString()));
                         Toast.makeText(getApplicationContext(), getString(R.string.userCreated), Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(RegisterActivity.this, LogInActivity.class);
                         startActivity(intent);
