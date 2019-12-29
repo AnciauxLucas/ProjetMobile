@@ -34,4 +34,6 @@
     <string name="cancel">Retour</string>
     <string name="wrongPassword">Mot de passe incorrect</string>
     <string name="successModify">Informations modifiées avec succès</string>
+    <string name="formations">Formations</string>
+    <string name="date">Date :</string>
 </resources>

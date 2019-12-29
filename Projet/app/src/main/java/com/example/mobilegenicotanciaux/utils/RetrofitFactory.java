@@ -32,15 +32,15 @@ public class RetrofitFactory {
 
     public static Retrofit getRetrofit() {
         if (retrofit == null) {
-            OkHttpClient.Builder okhttpBuilder = new OkHttpClient.Builder();
-            okhttpBuilder.addInterceptor(chain -> {
+            OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder();
+            okHttpBuilder.addInterceptor(chain -> {
                 Request request = chain.request();
                 Request.Builder newRequest = request.newBuilder().addHeader("Authorization", "Bearer " + token.getAccess_token());
                 return chain.proceed(newRequest.build());
             });
 
             retrofit = new Retrofit.Builder()
-                    .client(okhttpBuilder.build())
+                    .client(okHttpBuilder.build())
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();

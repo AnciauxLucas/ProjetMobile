@@ -14,11 +14,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.example.mobilegenicotanciaux.R;
+import com.example.mobilegenicotanciaux.model.Formation;
+import com.example.mobilegenicotanciaux.model.TrainingSchool;
+import com.example.mobilegenicotanciaux.services.FormationService;
 import com.example.mobilegenicotanciaux.utils.CurrentUser;
 import com.example.mobilegenicotanciaux.utils.NetworkUtil;
+import com.example.mobilegenicotanciaux.utils.RetrofitFactory;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -52,10 +62,33 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        buttonFormations.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO
+        buttonFormations.setOnClickListener(v -> {
+            if (!NetworkUtil.checkNetworkConnection(getApplicationContext())) {
+                Retrofit retrofit = RetrofitFactory.getRetrofit();
+                FormationService formationService = retrofit.create(FormationService.class);
+                Call<ArrayList<TrainingSchool>> call = formationService.getFormations();
+                call.enqueue(new Callback<ArrayList<TrainingSchool>>() {
+                    @Override
+                    public void onResponse(Call<ArrayList<TrainingSchool>> call, Response<ArrayList<TrainingSchool>> response) {
+                        if (response.isSuccessful()) {
+                            ArrayList<TrainingSchool> formations = response.body();
+                            Intent intent = new Intent(MenuActivity.this, FormationActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("formations", formations);
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(getApplicationContext(), getString(R.string.tokenExpired), Toast.LENGTH_SHORT);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<TrainingSchool>> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), getString(R.string.errorCallAPI), Toast.LENGTH_SHORT);
+                    }
+                });
+            } else {
+                NetworkUtil.prepareToast(getApplicationContext()).show();
             }
         });
         buttonAccount.setOnClickListener(v -> {
